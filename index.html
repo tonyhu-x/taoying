@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--
+      Taoying Garments - One Page Static Company Website
+      Notes:
+      - Primary theme color is yellow.
+      - Images: 1.png to 7.png in the same directory.
+      - Smooth scrolling via CSS.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Taoying Garments — Global Apparel Manufacturing</title>
+    <meta
+      name="description"
+      content="Taoying Garments delivers export-ready apparel manufacturing with dependable quality control, design support, and scalable production."
+    />
+    <style>
+      :root {
+        --yellow: #f5c400;
+        --yellow-dark: #d4a600;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --bg: #ffffff;
+        --bg-soft: #f9fafb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        --radius: 14px;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(92%, var(--max));
+        margin: 0 auto;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+
+      .brand-badge {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: var(--yellow);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: #111827;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .cta {
+        background: var(--yellow);
+        color: #111827;
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-weight: 600;
+        box-shadow: var(--shadow);
+        display: inline-block;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 70px 0 90px;
+        background: linear-gradient(120deg, #fff9e0, #ffffff 55%);
+      }
+
+      .hero-grid {
+        display: grid;
+        gap: 36px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 3vw, 3.2rem);
+        margin: 0 0 16px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        font-size: 1.05rem;
+        margin-bottom: 28px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn-outline {
+        border: 1px solid var(--border);
+        padding: 10px 18px;
+        border-radius: 999px;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 18px;
+        margin-top: 30px;
+      }
+
+      .stat {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 14px 16px;
+        border-radius: 12px;
+      }
+
+      .stat h4 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .stat p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+        margin: 0 0 10px;
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+        max-width: 680px;
+        margin-bottom: 34px;
+      }
+
+      /* About */
+      .about-grid {
+        display: grid;
+        gap: 28px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        align-items: center;
+      }
+
+      .highlight-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 14px;
+      }
+
+      .highlight-list li {
+        background: var(--bg-soft);
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      /* Products */
+      .product-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 18px;
+        display: grid;
+        gap: 14px;
+        box-shadow: var(--shadow);
+      }
+
+      .card h3 {
+        margin: 0;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      /* Advantages */
+      .adv-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .adv {
+        padding: 18px;
+        border-radius: 14px;
+        background: #fff7cc;
+        border: 1px solid #f3df85;
+      }
+
+      /* Factory */
+      .factory-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      /* Contact */
+      .contact {
+        background: var(--bg-soft);
+      }
+
+      .contact-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: center;
+      }
+
+      .contact-card {
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        padding: 22px;
+        background: #ffffff;
+      }
+
+      .footer {
+        padding: 28px 0;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 820px) {
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sticky Navbar -->
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand">
+          <div class="brand-badge">TY</div>
+          <span>Taoying Garments</span>
+        </div>
+        <nav class="nav-links" aria-label="Main">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#products">Products</a>
+          <a href="#advantages">Advantages</a>
+          <a href="#factory">Factory</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="cta" href="#contact">Get a Quote</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="hero" class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>International Garment Manufacturing Built for Global Brands</h1>
+            <p>
+              Taoying Garments delivers reliable apparel production with strong
+              design support, streamlined sampling, and consistent quality
+              control. We help importers, wholesalers, and private labels turn
+              ideas into scalable collections.
+            </p>
+            <div class="hero-buttons">
+              <a class="cta" href="#products">Explore Products</a>
+              <a class="btn-outline" href="#about">Our Story</a>
+            </div>
+            <div class="stat-row">
+              <div class="stat">
+                <h4>Experience</h4>
+                <p>Seasoned team with long-term export focus.</p>
+              </div>
+              <div class="stat">
+                <h4>Production</h4>
+                <p>Flexible runs from sampling to bulk orders.</p>
+              </div>
+              <div class="stat">
+                <h4>Quality</h4>
+                <p>Multi-step checks before shipment.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Hero image: 1.png -->
+          <div class="hero-media">
+            <img src="1.png" alt="Featured garment collection" />
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title">About Us</h2>
+          <p class="section-subtitle">
+            We are a garment export company serving international buyers with
+            dependable manufacturing, trend-aware design, and responsive order
+            management.
+          </p>
+          <div class="about-grid">
+            <!-- About image: 2.png -->
+            <div>
+              <img src="2.png" alt="Design and pattern development" />
+            </div>
+            <div>
+              <ul class="highlight-list">
+                <li>
+                  <strong>Product development:</strong> rapid pattern making and
+                  sampling to match seasonal needs.
+                </li>
+                <li>
+                  <strong>Materials sourcing:</strong> trusted fabric networks
+                  for quality and delivery stability.
+                </li>
+                <li>
+                  <strong>Export ready:</strong> clear documentation and
+                  inspection-ready processes.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section id="products">
+        <div class="container">
+          <h2 class="section-title">Products</h2>
+          <p class="section-subtitle">
+            We manufacture a wide range of apparel with consistent finishing,
+            adaptable trims, and scalable production runs.
+          </p>
+          <div class="product-grid">
+            <div class="card">
+              <img src="3.png" alt="Knitwear and casual essentials" />
+              <h3>Knitwear &amp; Casual</h3>
+              <p>Soft-touch knits, tees, and layered basics.</p>
+            </div>
+            <div class="card">
+              <img src="4.png" alt="Woven outerwear and uniforms" />
+              <h3>Woven &amp; Outerwear</h3>
+              <p>Structured silhouettes for all-season lines.</p>
+            </div>
+            <div class="card">
+              <img src="5.png" alt="Athleisure and active styles" />
+              <h3>Athleisure &amp; Active</h3>
+              <p>Performance-driven fabrics and clean finishing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advantages -->
+      <section id="advantages">
+        <div class="container">
+          <h2 class="section-title">Advantages &amp; Service Guarantees</h2>
+          <p class="section-subtitle">
+            From concept to shipment, we focus on measurable quality and clear
+            communication at every stage.
+          </p>
+          <div class="adv-grid">
+            <div class="adv">
+              <strong>Quality control</strong>
+              <p>Inline checks, final inspection, and packaging review.</p>
+            </div>
+            <div class="adv">
+              <strong>On-time delivery</strong>
+              <p>Clear production planning and order tracking.</p>
+            </div>
+            <div class="adv">
+              <strong>Responsive service</strong>
+              <p>Dedicated support for sampling and bulk orders.</p>
+            </div>
+            <div class="adv">
+              <strong>Scalable capacity</strong>
+              <p>From small launches to full seasonal programs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Factory Environment -->
+      <section id="factory">
+        <div class="container">
+          <h2 class="section-title">Factory Environment</h2>
+          <p class="section-subtitle">
+            Clean, organized production lines help us maintain consistent output
+            and traceable quality checks.
+          </p>
+          <div class="factory-grid">
+            <img src="6.png" alt="Factory floor and production line" />
+            <img src="7.png" alt="Finishing and quality inspection area" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / CTA -->
+      <section id="contact" class="contact">
+        <div class="container contact-grid">
+          <div>
+            <h2 class="section-title">Let’s Build Your Next Collection</h2>
+            <p class="section-subtitle">
+              Share your tech pack or inspiration, and our team will provide
+              sampling timelines, fabric suggestions, and a clear production
+              roadmap.
+            </p>
+            <a class="cta" href="mailto:hello@taoying-garments.com"
+              >Contact Sales</a
+            >
+          </div>
+          <div class="contact-card">
+            <h3>Contact Details</h3>
+            <p>
+              Email: hello@taoying-garments.com<br />
+              Business Hours: Mon–Fri, 9:00–18:00 (GMT+8)
+            </p>
+            <p>
+              Looking for a partner for long-term export orders? We’re ready to
+              help.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        © 2026 Taoying Garments. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
